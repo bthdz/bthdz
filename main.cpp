@@ -1,6 +1,8 @@
-
 #include "enemyplane.h"
-
+#include "collision.h"
+#include "BaseObject.h"
+#include "function.h"
+#include "move.h"
 
 bool init() {
 	if (SDL_Init(SDL_INIT_VIDEO) < 0) return false;
@@ -24,13 +26,13 @@ bool init() {
 
 void createEplane(vector <Eplane>& Ep) {
 	if (Ep.size() == 0) {
-		Eplane a(50, 50);
+		Eplane a(Eplanewidth, Eplaneheigh);
 		a.createpos();
 		a.createspeed();
 		Ep.push_back(a);
 	}
 	else if (Ep[Ep.size() - 1].x < width - 100) {
-		Eplane a(50, 50);
+		Eplane a(Eplanewidth, Eplaneheigh);
 		a.createpos();
 		a.createspeed();
 		Ep.push_back(a);
@@ -61,6 +63,7 @@ void createEplane(vector <Eplane>& Ep) {
 }
 
 
+
 int main(int argv, char* argc[]) {
 	if (!init()) {
 		cout << "loi cua so: " << SDL_GetError();
@@ -83,9 +86,7 @@ int main(int argv, char* argc[]) {
 		cout << "loi dan: " << SDL_GetError();
 		return -1;
 	}
-
-	vector <Eplane> enemies;
-
+	vector <Bullet> enemyBullet;
 	bool running = true;
 	while (running) {
 		SDL_Delay(5);
@@ -94,7 +95,7 @@ int main(int argv, char* argc[]) {
 				running = false;
 			}
 			else if (e.type == SDL_KEYDOWN) {
-				if (e.key.keysym.sym == SDLK_SPACE) {
+				if (e.key.keysym.sym == SDLK_SPACE && e.key.repeat == 0) {
 					bullets.push_back(Bullet(rectplane.x + rectplane.w, rectplane.y + rectplane.h/2 - 5, 1));
 				}
 			}
@@ -103,22 +104,39 @@ int main(int argv, char* argc[]) {
 		keepIn(rectplane);
 		Render(bground, screen, rectBG);
 		Render(plane, screen, rectplane);
+		// dan may bay
 		for (size_t i = 0; i < bullets.size(); i++) {
 			bullets[i].x += bulletspeed;
-			SDL_Rect rectbullet = { bullets[i].x, bullets[i].y, 5, 5 };
-			SDL_Rect rectbullet2 = { bullets[i].x, bullets[i].y + 15, 5, 5 };
-			SDL_Rect rectbullet3 = { bullets[i].x, bullets[i].y - 15, 5, 5 };
+			SDL_Rect rectbullet = { bullets[i].x,bullets[i].y, bulletwidth, bulletheigh };
 			Render(bulletTexture, screen, rectbullet);
-			Render(bulletTexture, screen, rectbullet2);
-			Render(bulletTexture, screen, rectbullet3);
 			if (bullets[i].x > width) {
-				bullets.erase(bullets.begin()+i);
+				bullets.erase(bullets.begin() + i);
 				i--;
 			}
 		}
 		createEplane(enemies);
+		for (int i = 0; i < enemyBullet.size(); i++) {
+			SDL_Rect rect = { enemyBullet[i].x, enemyBullet[i].y, bulletwidth, bulletheigh };
+			enemyBullet[i].x -= bulletspeed;
+			Render(bulletTexture, screen, rect);
+			if (enemyBullet[i].x <= 0) {
+				enemyBullet.erase(enemyBullet.begin() + i);
+				i--;
+			}
+		}
+		for (size_t i = 0; i < enemies.size(); i++) {
+			bulletCollision(bullets, enemies[i].Ebullets);
+			bulletCollision(bullets, enemyBullet);
+		}
+		EplaneCollision(bullets, enemies, enemyBullet);
+		
 		SDL_RenderPresent(screen);
-
+		for (size_t i = 0; i < enemies.size(); i++) {
+			if (planeCollision(enemies[i].Ebullets, rectplane, enemies) || planeCollision(enemyBullet, rectplane, enemies)) {
+				running  = false;
+				break;
+			}
+		}
 	}
 	cleanup();
 	return 0;

@@ -1,18 +1,4 @@
-﻿  enemyplane.cpp
-C:\Users\d\source\repos\learn\learn\enemyplane.h(22,35): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
-  (compiling source file 'enemyplane.cpp')
-  
-C:\Users\d\source\repos\learn\learn\enemyplane.h(28,48): warning C4244: 'argument': conversion from 'const float' to 'int', possible loss of data
-  (compiling source file 'enemyplane.cpp')
-  
-C:\Users\d\source\repos\learn\learn\enemyplane.h(31,48): warning C4244: 'argument': conversion from 'const float' to 'int', possible loss of data
-  (compiling source file 'enemyplane.cpp')
-  
-C:\Users\d\source\repos\learn\learn\function.h(32,27): warning C4244: '-=': conversion from 'float' to 'int', possible loss of data
-  (compiling source file 'enemyplane.cpp')
-  
-C:\Users\d\source\repos\learn\learn\enemyplane.cpp(4,20): warning C4018: '<': signed/unsigned mismatch
-  main.cpp
+﻿  main.cpp
 C:\Users\d\source\repos\learn\learn\enemyplane.h(22,35): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
   (compiling source file 'main.cpp')
   
@@ -22,11 +8,11 @@ C:\Users\d\source\repos\learn\learn\enemyplane.h(28,48): warning C4244: 'argumen
 C:\Users\d\source\repos\learn\learn\enemyplane.h(31,48): warning C4244: 'argument': conversion from 'const float' to 'int', possible loss of data
   (compiling source file 'main.cpp')
   
-C:\Users\d\source\repos\learn\learn\function.h(32,27): warning C4244: '-=': conversion from 'float' to 'int', possible loss of data
+C:\Users\d\source\repos\learn\learn\function.h(38,27): warning C4244: '-=': conversion from 'float' to 'int', possible loss of data
   (compiling source file 'main.cpp')
   
-C:\Users\d\source\repos\learn\learn\function.h(32,27): warning C4244: '+=': conversion from 'float' to 'int', possible loss of data
+C:\Users\d\source\repos\learn\learn\function.h(38,27): warning C4244: '+=': conversion from 'float' to 'int', possible loss of data
   (compiling source file 'main.cpp')
   
-  Generating Code...
+C:\Users\d\source\repos\learn\learn\main.cpp(118,21): warning C4018: '<': signed/unsigned mismatch
   learn.vcxproj -> C:\Users\d\source\repos\learn\Debug\learn.exe

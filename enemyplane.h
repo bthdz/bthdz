@@ -15,7 +15,7 @@ struct Eplane
 		h = c;
 	}
 	void createpos() {
-		x = width;
+		x = width - 10;
 		y = rand() % (heigh - h);
 	}
 	void createspeed() {
@@ -31,8 +31,8 @@ struct Eplane
 			Ebullets.push_back(Bullet(x, y + h / 2 - 5, bulletspeed));
 		}
 		for (size_t i = 0; i < Ebullets.size(); i++) {
+			SDL_Rect rect = { Ebullets[i].x , Ebullets[i].y, bulletwidth, bulletheigh };
 			Ebullets[i].x -= bulletspeed;
-			SDL_Rect rect = { Ebullets[i].x , Ebullets[i].y, 20, 10 };
 			Render(bulletTexture, screen, rect);
 			if (abs(Ebullets[i].x - x) >= bulletDistance) {
 				Ebullets.erase(Ebullets.begin()+i);
@@ -42,3 +42,5 @@ struct Eplane
 	}
 };
 bool check(Eplane e, vector <Eplane> Ep);
+
+static vector <Eplane> enemies; 
