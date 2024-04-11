@@ -1,0 +1,19 @@
+﻿  main.cpp
+C:\Users\d\source\repos\learn\learn\enemyplane.h(25,48): warning C4244: 'argument': conversion from 'const float' to 'int', possible loss of data
+  (compiling source file 'main.cpp')
+  
+C:\Users\d\source\repos\learn\learn\enemyplane.h(28,48): warning C4244: 'argument': conversion from 'const float' to 'int', possible loss of data
+  (compiling source file 'main.cpp')
+  
+C:\Users\d\source\repos\learn\learn\enemyplane.h(30,21): warning C4018: '<': signed/unsigned mismatch
+  (compiling source file 'main.cpp')
+  
+C:\Users\d\source\repos\learn\learn\function.h(24,27): warning C4244: '-=': conversion from 'float' to 'int', possible loss of data
+  (compiling source file 'main.cpp')
+  
+C:\Users\d\source\repos\learn\learn\function.h(24,27): warning C4244: '+=': conversion from 'float' to 'int', possible loss of data
+  (compiling source file 'main.cpp')
+  
+C:\Users\d\source\repos\learn\learn\main.cpp(211,15): warning C4244: 'initializing': conversion from 'Uint32' to 'float', possible loss of data
+C:\Users\d\source\repos\learn\learn\main.cpp(224,22): warning C4018: '<': signed/unsigned mismatch
+  learn.vcxproj -> C:\Users\d\source\repos\learn\Debug\learn.exe
