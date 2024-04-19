@@ -4,7 +4,6 @@
 #include "enemyplane.h"
 #include "collision.h"
 
-
 bool init() {
 	if (TTF_Init() == -1) return false;
 	if (SDL_Init(SDL_INIT_VIDEO) < 0) return false;
@@ -54,7 +53,7 @@ void enemyMotion() {
 			if (checkpos(enemies[i], enemies)) {
 				SDL_Rect rect = { enemies[i].x, enemies[i].y, enemies[i].w, enemies[i].h };
 				Render(enemies[i].eplane, screen, rect);
-				enemies[i].shoot();
+				enemies[i].shoot(rectplane);
 			}
 			else {
 				enemies.erase(enemies.begin() + i);
@@ -64,7 +63,7 @@ void enemyMotion() {
 		else {
 			SDL_Rect rect = { enemies[i].x, enemies[i].y, enemies[i].w, enemies[i].h };
 			Render(enemies[i].eplane, screen, rect);
-			enemies[i].shoot();
+			enemies[i].shoot(rectplane);
 		}
 		if (enemies[i].x <= 0) {
 			enemies.erase(enemies.begin() + i);
@@ -95,16 +94,6 @@ void cleanPlay( vector<Eplane>& enemies, vector<Bullet> &Bullets, vector<Bullet>
 	rectbg = { 0, 0, width, heigh };
 	time_ = 200;
 }
-void checkCollision()  {
-	for (size_t i = 0; i < enemies.size(); i++) {
-		if (planeCollision(enemies[i].Ebullets, rectplane, enemies) || planeCollision(enemyBullet, rectplane, enemies)) {
-			play = false;
-			cleanPlay(enemies, bullets, enemyBullet, rectplane, rectBG, time_);
-			SDL_RenderClear(screen);
-			break;
-		}
-	}
-} 
 void Menu(SDL_Renderer* screen1, SDL_Texture* start, SDL_Texture* exit, SDL_Texture* scoreTexture) {
 	Render(bground, screen1, rectBG);
 	Render(start, screen1, start_);
@@ -112,34 +101,116 @@ void Menu(SDL_Renderer* screen1, SDL_Texture* start, SDL_Texture* exit, SDL_Text
 	Render(Exit, screen1, exit_);
 	SDL_RenderPresent(screen1);
 }
-void renderScore(int score, TTF_Font* font, SDL_Renderer* renderer) {
-	
-	string scoreStr = "Score: " + to_string(score);
-
-	
-	SDL_Color textColor = { 255, 255, 255, 255 }; 
-
+void renderScore() {
+	string scoreStr;
+	ifstream in;
+	in.open("score.txt");
+	if (in.is_open()) {
+		in >> highScore;
+		in.close();
+	}
+	if (score > highScore) {
+		highScore = score;
+		ofstream out;
+		out.open("score.txt");
+		if (out.is_open()) {
+			out << highScore;
+			out.close();
+		}
+		scoreStr = "High score: " + to_string(score);
+	}
+	else {
+		scoreStr = "Score: " + to_string(score);
+	}
+	string back_to_menu = "Press space to return to the menu";
 	SDL_Surface* textSurface = TTF_RenderText_Solid(font, scoreStr.c_str(), textColor);
-		
-		SDL_Texture* textTexture = SDL_CreateTextureFromSurface(renderer, textSurface);
-			
-			SDL_Rect dstRect = { width/2 - 100, heigh/2 - 50, 200, 50 };
+	SDL_Texture* textTexture = SDL_CreateTextureFromSurface(screen, textSurface);
+	SDL_Rect dstRect = { width / 2 - 100, heigh / 2 - 50, 200, 50 };
+	SDL_RenderCopy(screen, textTexture, NULL, &dstRect);
+	SDL_Surface* returnMenu = TTF_RenderText_Solid(font, back_to_menu.c_str(), textColor);
+	SDL_Texture* returnMenuTexture = SDL_CreateTextureFromSurface(screen, returnMenu);
+	SDL_Rect dstRect1 = { width / 2 - 250, heigh / 2 + 50, 500, 50 };
+	SDL_RenderCopy(screen, returnMenuTexture, NULL, &dstRect1);
+	SDL_Surface* gameover = TTF_RenderText_Solid(font, "GAME OVER", textColor);
+	SDL_Texture* gameoverTexture = SDL_CreateTextureFromSurface(screen, gameover);
+	SDL_Rect dstRect2 = { width / 2 - 200, heigh / 2 - 200, 400, 50 };
+	SDL_RenderCopy(screen, gameoverTexture, NULL, &dstRect2);
+	SDL_RenderPresent(screen);
+	SDL_FreeSurface(textSurface);
+	SDL_FreeSurface(returnMenu);
+	SDL_FreeSurface(gameover);
+	
 
-			
-			SDL_RenderCopy(renderer, textTexture, NULL, &dstRect);
-			SDL_RenderPresent(renderer);
-		
+	while (SDL_PollEvent(&e)) {
+		if (e.type == SDL_QUIT) {
+			running = false;
+			break;
+		}
+		else if (e.type == SDL_KEYDOWN) {
+			if (e.key.keysym.sym == SDLK_SPACE) {
+				SDL_DestroyTexture(textTexture);
+				SDL_DestroyTexture(returnMenuTexture);
+				SDL_DestroyTexture(gameoverTexture);
+				scoreCheck = false;
+				score = 0;
+				break;
+			}
+		}
+	}
+}
+void checkCollision(int score, SDL_Renderer* renderer) {
+	for (size_t i = 0; i < enemies.size(); i++) {
+		if (planeCollision(enemies[i].Ebullets, rectplane, enemies) || planeCollision(enemyBullet, rectplane, enemies)) {
+			Mix_PlayChannel(-1, soundEffect1, 0);
+			cleanPlay(enemies, bullets, enemyBullet, rectplane, rectBG, time_);
+			play = false;
+			scoreCheck = true;
+			break;
+		}
+	}
+}
+void enemyShoot() {
+	for (int i = 0; i < enemyBullet.size(); i++) {
+		SDL_Rect rect = { enemyBullet[i].x, enemyBullet[i].y, bulletwidth, bulletheigh };
+		enemyBullet[i].x -= bulletspeed;
+		Render(EbulletTexture, screen, rect);
+		if (enemyBullet[i].x <= 0) {
+			enemyBullet.erase(enemyBullet.begin() + i);
+			if (i >= 1) i--;
+		}
+	}
+}
+void currentScore() {
+	string scoreStr = "Score: " + to_string(score);
+	SDL_Surface* textSurface = TTF_RenderText_Solid(font, scoreStr.c_str(), textColor);
+	SDL_Texture* textTexture = SDL_CreateTextureFromSurface(screen, textSurface);
+	SDL_Rect dstRect = { 0, 0, 100, 30 };
+	SDL_RenderCopy(screen, textTexture, NULL, &dstRect);
+	SDL_RenderPresent(screen);
+	SDL_FreeSurface(textSurface);
+}
+void loadMedia(){
+	bground = LoadImage("image/sk2.png", screen);
+	plane = LoadImage("image/plane.png", screen);
+	bulletTexture = LoadImage("image/bullet3.png", screen);
+	EbulletTexture = LoadImage("image/bullet4.png", screen);
+	start = LoadImage("image/start.png", screen);
+	Exit = LoadImage("image/exit.png", screen);
+	scoreTexture = LoadImage("image/score.png", screen);
 
+	soundEffect = Mix_LoadWAV("image/Gun.wav");
+	soundEffect1 = Mix_LoadWAV("image/Explore.wav");
+	font = TTF_OpenFont("font/arial.ttf", 24);
+	
 }
 
 
+
 int main(int argv, char* argc[]) {
-	// tao cua so
 	if (!init()) {
 		cout << "loi cua so: " << SDL_GetError();
 		return -1;
 	}
-	// khoi tao mixer
 	if (SDL_Init(SDL_INIT_AUDIO) < 0) {
 		std::cerr << "SDL could not initialize! SDL Error: " << SDL_GetError() << endl;
 		return -1;
@@ -148,18 +219,7 @@ int main(int argv, char* argc[]) {
 		std::cerr << "SDL_mixer could not initialize! SDL_mixer Error: " << Mix_GetError() << std::endl;
 		return -1;
 	}
-
-	bground = LoadImage("image/sk2.png", screen);
-	plane = LoadImage("image/plane.png", screen);
-	start = LoadImage("image/start.png", screen);
-	Exit = LoadImage("image/exit.png", screen);
-	scoreTexture = LoadImage("image/score.png", screen);
-	
-	bulletTexture = LoadImage("image/bullet3.png", screen);
-	soundEffect = Mix_LoadWAV("image/Gun.wav");
-	soundEffect1 = Mix_LoadWAV("image/Explore.wav");
-	font = TTF_OpenFont("font/arial.ttf", 50);
-
+	loadMedia();
 	if (bground == NULL) {
 		cout << "loi bground: " << SDL_GetError();
 		return -1;
@@ -172,7 +232,6 @@ int main(int argv, char* argc[]) {
 		cout << "loi dan: " << SDL_GetError();
 		return -1;
 	}
-	int c = 0;
 	while (running) {
 		while (SDL_PollEvent(&e)) {
 			if (e.type == SDL_QUIT) {
@@ -195,50 +254,34 @@ int main(int argv, char* argc[]) {
 				}
 			}
 		}
-		if (play == false) {
-			renderScore(score, font, screen);
-			if (SDL_PollEvent(&e)) {
-				if (e.type == SDL_KEYDOWN) {
-					
-						TTF_CloseFont(font);
-						Menu(screen, start, Exit, scoreTexture);
-					
-				}
-			}
+		if (play == false && scoreCheck == false) {
+			Menu(screen, start, Exit, scoreTexture);
 		}
-		else {
-			c = 1;
-			float time = SDL_GetTicks() / 1000;
-			time_eplane(time, time_, time1);
+		else if(play == true && scoreCheck == false){
+			float time1 = SDL_GetTicks() / 1000;
+			time_eplane(time1, time_, time2);
 			fps_timer.start();
-			// di chuyen may bay
-			planemove(rectplane, planeSpeed);
 			Render(bground, screen, rectBG);
 			scrollBackground(bground, screen, rectBG.x, 1);
 			Render(plane, screen, rectplane);
+			// di chuyen may bay
+			planemove(rectplane, planeSpeed);
 			// dan may bay
 			fire();
 			// tao may bay dich
 			createEnemies();
-			// dan da ban cua may bay dich
-			for (int i = 0; i < enemyBullet.size(); i++) {
-				SDL_Rect rect = { enemyBullet[i].x, enemyBullet[i].y, bulletwidth, bulletheigh };
-				enemyBullet[i].x -= bulletspeed;
-				Render(bulletTexture, screen, rect);
-				if (enemyBullet[i].x <= 0) {
-					enemyBullet.erase(enemyBullet.begin() + i);
-					i--;
-				}
-			}
 			//check va cham
 			for (size_t i = 0; i < enemies.size(); i++) {
 				bulletCollision(bullets, enemies[i].Ebullets);
 				bulletCollision(bullets, enemyBullet);
 			}
 			EplaneCollision(bullets, enemies, enemyBullet, score, soundEffect1);
-			SDL_RenderPresent(screen);
-			// chech va cham
-			checkCollision();
+			// dan da ban cua may bay dich
+			enemyShoot();
+			// diem hien tai
+			currentScore();
+			// chech va cham end game
+			checkCollision(score, screen);
 			// fps
 			int real_time = fps_timer.get_ticks();
 			int timeframe = 1000 / fps;
@@ -248,6 +291,11 @@ int main(int argv, char* argc[]) {
 					SDL_Delay(delayTime);
 				}
 			}
+			cout << highScore << endl;
+		}
+		else {
+			Render(bground, screen, rectBG);
+			renderScore();
 		}
 	}
 	cleanup();

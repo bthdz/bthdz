@@ -20,7 +20,11 @@ struct Eplane
 	void createpos();
 	void createspeed();
 	void EplaneMotion();
-	void shoot() {
+	void destroy() {
+		SDL_DestroyTexture(eplane);
+		eplane = NULL;
+	}
+	void shoot(SDL_Rect &rect) {
 		if (Ebullets.size() == 0) {
 			Ebullets.push_back(Bullet(x, y + h / 2 - 5, bulletspeed));
 		}
@@ -28,9 +32,9 @@ struct Eplane
 			Ebullets.push_back(Bullet(x, y + h / 2 - 5, bulletspeed));
 		}
 		for (int i = 0; i < Ebullets.size(); i++) {
-			SDL_Rect rect = { Ebullets[i].x , Ebullets[i].y, bulletwidth, bulletheigh };
 			Ebullets[i].x -= bulletspeed;
-			Render(bulletTexture, screen, rect);
+			SDL_Rect rect = { Ebullets[i].x , Ebullets[i].y, bulletwidth, bulletheigh };
+			Render(EbulletTexture, screen, rect);
 			if (abs(Ebullets[i].x - x) >= bulletDistance) {
 				Ebullets.erase(Ebullets.begin() + i);
 				i--;

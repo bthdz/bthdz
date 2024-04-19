@@ -22,17 +22,23 @@ void cleanup() {
 	bground = NULL;
 	SDL_DestroyTexture(bulletTexture);
 	bulletTexture = NULL;
-	SDL_DestroyRenderer(screen);
-	screen = NULL;
-	SDL_DestroyWindow(window);
-	window = NULL;
+	SDL_DestroyTexture(EbulletTexture);
+	EbulletTexture = NULL;
 	SDL_DestroyTexture(start);
 	start = NULL;
 	SDL_DestroyTexture(Exit);
 	Exit = NULL;
 	SDL_DestroyTexture(scoreTexture);
 	scoreTexture = NULL;
+	Mix_FreeChunk(soundEffect);
+	Mix_FreeChunk(soundEffect1);
+	SDL_DestroyRenderer(screen);
+	screen = NULL;
+	SDL_DestroyWindow(window);
+	window = NULL;
 	IMG_Quit();
+	TTF_Quit();
+	Mix_Quit();
 	SDL_Quit();
 }
 
@@ -51,6 +57,7 @@ void scrollBackground(SDL_Texture* background, SDL_Renderer* renderer, int& back
 	destRect.x = backgroundOffsetX + width;
 	SDL_RenderCopy(renderer, background, &srcRect, &destRect);
 }
+
 
 //void createItems() {
 //	int x = rand() % (width - 20);

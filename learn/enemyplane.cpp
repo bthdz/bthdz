@@ -3,7 +3,7 @@
 
 	bool checkpos(Eplane e, vector<Eplane> enemies) {
 		for (int i = 0; i < enemies.size() - 1; i++) {
-			if (e.y >= enemies[i].y - 50 && e.y <= enemies[i].y + 50) return false;
+			if (e.y >= enemies[i].y - 20 && e.y <= enemies[i].y + 20) return false;
 		}
 		return true;
 	}
@@ -20,13 +20,10 @@
 	}
 
 	string Eplane::randomEnemy() {
-		vector <string> enemyTexture;
-		for (int i = 1; i <= 3; i++) {
-			string b;
-			b = "image/plane" + to_string(i) + ".png";
-			enemyTexture.push_back(b);
-		}
-		int a = (rand() % 2) + 1;
+		enemyTexture.push_back("image/plane1.png");
+		enemyTexture.push_back("image/plane2.png");
+		enemyTexture.push_back("image/plane3.png");
+		int a = rand() % 3;
 		string c = enemyTexture[a];
 		return c;
 	}
@@ -35,9 +32,9 @@
 		x -= speed;
 	}
 
-	void time_eplane(float time, int& time_, float &time1) {
-		if (time - time1 >= 10 && time_ >= 20) {
-			time_ -= 20;
-			time1 = time;
+	void time_eplane(float time1, int& time_, float &time2) {
+		if (time1 - time2 >= 10 && time_ >= 20) {
+			time_ -= 10;
+			time2 = time1;
 		}
 	}
