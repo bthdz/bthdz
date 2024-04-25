@@ -14,3 +14,8 @@ Plane Shooter là một tựa game bắn máy bay kinh diển. Bạn sẽ đắm
     * [c. Sử dụng các kĩ năng](#c-sử-dụng-các-kĩ-năng)
     * [d. Pause game](#d-pause-game)
     * [e. End game](#e-end-game)
+# 0. Cách tải game
+##  a. Cách 1: Không bao gồm code.
+    Tải tại link sau: []
+## b. Cách 2: Bao gồm code và có thể biên dịch
+### Bước 1. Clone repo này về hoặc chọn Code -> Download Zip.
