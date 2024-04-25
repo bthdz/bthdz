@@ -1,4 +1,4 @@
-# PLANE SHOOTER   BTH-Edition
+# PLANE SHOOTER
 - Thử nghiệm game
 # Giới thiệu game
 Plane Shooter là một tựa game bắn máy bay kinh diển. Bạn sẽ đắm chìm vào những cuộc chiến đấu máy bay hấp dẫn. Hãy điều khiển máy bay thật khéo léo để có thể tiêu diệt được nhiều máy bay địch nhất và ghi tên mình lên bảng xếp hạng. 
