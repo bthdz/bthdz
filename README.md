@@ -13,3 +13,4 @@ Plane Shooter là một tựa game bắn máy bay kinh diển. Bạn sẽ đắm
     * [b. Di chuyển máy bay và bắn đạn](#b-di-chuyển-máy-bay-và-bắn-đạn)
     * [c. Sử dụng các kĩ năng](#c-sử-dụng-các-kĩ-năng)
     * [d. Pause game](#d-pause-game)
+    * [e. End game](#e-end-game)
