@@ -1,0 +1,66 @@
+﻿  collision.cpp
+C:\Users\d\Desktop\bthdz\bthdz\learn\enemyplane.h(29,48): warning C4244: 'argument': conversion from 'const float' to 'int', possible loss of data
+  (compiling source file 'collision.cpp')
+  
+C:\Users\d\Desktop\bthdz\bthdz\learn\enemyplane.h(32,48): warning C4244: 'argument': conversion from 'const float' to 'int', possible loss of data
+  (compiling source file 'collision.cpp')
+  
+C:\Users\d\Desktop\bthdz\bthdz\learn\enemyplane.h(34,21): warning C4018: '<': signed/unsigned mismatch
+  (compiling source file 'collision.cpp')
+  
+C:\Users\d\Desktop\bthdz\bthdz\learn\function.h(26,27): warning C4244: '-=': conversion from 'float' to 'int', possible loss of data
+  (compiling source file 'collision.cpp')
+  
+C:\Users\d\Desktop\bthdz\bthdz\learn\collision.cpp(15,31): warning C4018: '<': signed/unsigned mismatch
+C:\Users\d\Desktop\bthdz\bthdz\learn\collision.cpp(31,23): warning C4018: '<': signed/unsigned mismatch
+C:\Users\d\Desktop\bthdz\bthdz\learn\collision.cpp(32,27): warning C4018: '<': signed/unsigned mismatch
+C:\Users\d\Desktop\bthdz\bthdz\learn\collision.cpp(58,23): warning C4018: '<': signed/unsigned mismatch
+C:\Users\d\Desktop\bthdz\bthdz\learn\collision.cpp(59,27): warning C4018: '<': signed/unsigned mismatch
+  enemyplane.cpp
+C:\Users\d\Desktop\bthdz\bthdz\learn\enemyplane.h(29,48): warning C4244: 'argument': conversion from 'const float' to 'int', possible loss of data
+  (compiling source file 'enemyplane.cpp')
+  
+C:\Users\d\Desktop\bthdz\bthdz\learn\enemyplane.h(32,48): warning C4244: 'argument': conversion from 'const float' to 'int', possible loss of data
+  (compiling source file 'enemyplane.cpp')
+  
+C:\Users\d\Desktop\bthdz\bthdz\learn\enemyplane.h(34,21): warning C4018: '<': signed/unsigned mismatch
+  (compiling source file 'enemyplane.cpp')
+  
+C:\Users\d\Desktop\bthdz\bthdz\learn\function.h(26,27): warning C4244: '-=': conversion from 'float' to 'int', possible loss of data
+  (compiling source file 'enemyplane.cpp')
+  
+C:\Users\d\Desktop\bthdz\bthdz\learn\enemyplane.cpp(5,21): warning C4018: '<': signed/unsigned mismatch
+C:\Users\d\Desktop\bthdz\bthdz\learn\enemyplane.cpp(17,35): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+  motion.cpp
+C:\Users\d\Desktop\bthdz\bthdz\learn\motion.cpp(7,19): warning C4244: '-=': conversion from 'float' to 'int', possible loss of data
+C:\Users\d\Desktop\bthdz\bthdz\learn\motion.cpp(11,19): warning C4244: '+=': conversion from 'float' to 'int', possible loss of data
+C:\Users\d\Desktop\bthdz\bthdz\learn\motion.cpp(15,19): warning C4244: '-=': conversion from 'float' to 'int', possible loss of data
+C:\Users\d\Desktop\bthdz\bthdz\learn\motion.cpp(19,18): warning C4244: '+=': conversion from 'float' to 'int', possible loss of data
+  BaseObject.cpp
+C:\Users\d\Desktop\bthdz\bthdz\learn\BaseObject.cpp(77,23): warning C4244: '=': conversion from 'Uint32' to 'float', possible loss of data
+  main.cpp
+C:\Users\d\Desktop\bthdz\bthdz\learn\enemyplane.h(29,48): warning C4244: 'argument': conversion from 'const float' to 'int', possible loss of data
+  (compiling source file 'main.cpp')
+  
+C:\Users\d\Desktop\bthdz\bthdz\learn\enemyplane.h(32,48): warning C4244: 'argument': conversion from 'const float' to 'int', possible loss of data
+  (compiling source file 'main.cpp')
+  
+C:\Users\d\Desktop\bthdz\bthdz\learn\enemyplane.h(34,21): warning C4018: '<': signed/unsigned mismatch
+  (compiling source file 'main.cpp')
+  
+C:\Users\d\Desktop\bthdz\bthdz\learn\function.h(26,27): warning C4244: '-=': conversion from 'float' to 'int', possible loss of data
+  (compiling source file 'main.cpp')
+  
+C:\Users\d\Desktop\bthdz\bthdz\learn\main.cpp(80,20): warning C4018: '<': signed/unsigned mismatch
+C:\Users\d\Desktop\bthdz\bthdz\learn\function.h(26,27): warning C4244: '+=': conversion from 'float' to 'int', possible loss of data
+  (compiling source file 'main.cpp')
+  
+C:\Users\d\Desktop\bthdz\bthdz\learn\main.cpp(103,21): warning C4244: 'initializing': conversion from 'Uint32' to 'float', possible loss of data
+C:\Users\d\Desktop\bthdz\bthdz\learn\main.cpp(197,20): warning C4018: '<': signed/unsigned mismatch
+C:\Users\d\Desktop\bthdz\bthdz\learn\main.cpp(263,21): warning C4018: '<': signed/unsigned mismatch
+C:\Users\d\Desktop\bthdz\bthdz\learn\main.cpp(437,23): warning C4244: 'initializing': conversion from 'Uint32' to 'float', possible loss of data
+C:\Users\d\Desktop\bthdz\bthdz\learn\main.cpp(444,28): warning C4244: '=': conversion from 'Uint32' to 'float', possible loss of data
+C:\Users\d\Desktop\bthdz\bthdz\learn\main.cpp(534,23): warning C4244: 'initializing': conversion from 'Uint32' to 'float', possible loss of data
+  function.cpp
+  Generating Code...
+  learn.vcxproj -> C:\Users\d\Desktop\bthdz\bthdz\Debug\learn.exe
