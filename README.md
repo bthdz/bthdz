@@ -97,7 +97,7 @@ Plane Shooter là một tựa game bắn máy bay kinh diển. Bạn sẽ đắm
 
 # 3. Về source code  
 - File BaseObject.cpp: chứa các hàm cơ bản như load và render các hình ảnh lên màn hình, dọn cửa sổ, ...
-- File Function.cpp: chứa các biến cơ bản cần dùng trong game.
+- File Function.h: chứa các biến cơ bản cần dùng trong game.
 - File motion.cpp: để điều khiển máy bay và tính fps.
 - File enemyplane.cpp: tạo các máy bay và đạn của địch.
 - File collision.cpp: kiểm tra va chạm giữa máy bay hoặc đan.
