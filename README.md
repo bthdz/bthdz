@@ -32,7 +32,7 @@ Plane Shooter là một tựa game bắn máy bay kinh diển. Bạn sẽ đắm
 
 # 1. Các thành phần game
 ## a. Máy bay  
-- 3 loại máy bay:
+- 3 loại máy bay địch có thể bắn đạn theo đường thẳng:
        
   ![image](image/plane1.png)
   
@@ -72,7 +72,7 @@ Plane Shooter là một tựa game bắn máy bay kinh diển. Bạn sẽ đắm
 - Nhấn S để di chuyển xuống dưới
 - Nhấn A để sang trái
 - Nhấn D để sang phải
-- Nhấn chuột trái để bắn đạn
+- Nhấn chuột trái để bắn đạn, mỗi khi bắn trúng máy bay địch sẽ được 1 điểm.
 
 ## c. Sử dụng các kĩ năng  
 - Nhấn 1 để sử dụng Skill1
@@ -89,6 +89,8 @@ Plane Shooter là một tựa game bắn máy bay kinh diển. Bạn sẽ đắm
 - Hoặc chọn ![image](image/home.png) để trở về menu.
 
 ## e. End game
+- Khi va chạm với đạn hoặc máy bay địch, máy bay của bạn sẽ bị trừ một lượng máu.
+- Khi lượng máu của bạn bằng 0, trò chơi sẽ kết thúc.
 - Khi trò chơi kết thúc, điểm số của bạn sẽ được hiển thị trên màn hình.
 - Bấm Space để quay lại Menu.
 
