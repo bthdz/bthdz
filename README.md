@@ -28,7 +28,7 @@ Plane Shooter là một tựa game bắn máy bay kinh diển. Bạn sẽ đắm
 ## b. Cách 2: Bao gồm code và có thể biên dịch  
 ### Bước 1. Clone repo này về hoặc chọn Code -> Download Zip.  
 ### Bước 2. Cài visual studio và các thư viện như hướng dẫn ở trên.
-### Bước 3. Mở learn.sln và chơi.  
+### Bước 3. Mở learn.sln chuyển về x86 và chạy chương trình.  
 
 # 1. Các thành phần game
 ## a. Máy bay  
