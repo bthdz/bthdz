@@ -22,7 +22,7 @@ Plane Shooter là một tựa game bắn máy bay kinh diển. Bạn sẽ đắm
    SDL_mixer: [https://github.com/libsdl-org/SDL_mixer/releases]  
    SDL_ttf: [https://github.com/libsdl-org/SDL_ttf/releases]  
 ##  a. Cách 1: Không bao gồm code.
-   Tải tại link sau: [https://github.com/bthdz/plane-shoot/releases/tag/planeshoot]
+   Tải tại link sau: [https://github.com/bthdz/plane-shoot/releases/tag/bth]
 ## b. Cách 2: Bao gồm code và có thể biên dịch  
 ### Bước 1. Clone repo này về hoặc chọn Code -> Download Zip.  
 
