@@ -16,6 +16,7 @@ Plane Shooter là một tựa game bắn máy bay kinh diển. Bạn sẽ đắm
     * [c. Sử dụng các kĩ năng](#c-sử-dụng-các-kĩ-năng)
     * [d. Pause game](#d-pause-game)
     * [e. End game](#e-end-game)
+- [3. Về Source Code](#3-về-source-code)
 # 0. Cách tải game
    Cài Visual Studio 2022 : [https://www.youtube.com/watch?v=hto2TVEhNkA]  
    Cài các thư viện SDL cho VS2022 :  
@@ -93,4 +94,12 @@ Plane Shooter là một tựa game bắn máy bay kinh diển. Bạn sẽ đắm
 - Khi lượng máu của bạn bằng 0, trò chơi sẽ kết thúc.
 - Khi trò chơi kết thúc, điểm số của bạn sẽ được hiển thị trên màn hình.
 - Bấm Space để quay lại Menu.
+
+# 3. Về source code  
+- File BaseObject.cpp: chứa các hàm cơ bản như load và render các hình ảnh lên màn hình, dọn cửa sổ, ...
+- File Function.cpp: chứa các biến cơ bản cần dùng trong game.
+- File motion.cpp: để điều khiển máy bay và tính fps.
+- File enemyplane.cpp: tạo các máy bay và đạn của địch.
+- File collision.cpp: kiểm tra va chạm giữa máy bay hoặc đan.
+- File main.cpp: gọi các hàm, chứa một số hàm khác như init, loadMedia, ... và vòng lặp để chạy chương trình.
 
