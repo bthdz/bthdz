@@ -1,4 +1,6 @@
 # PLANE SHOOTER
+- Ý tưởng: Phát triển phần mềm 123A-Z  [https://phattrienphanmem123az.com/lap-trinh-game-cpp/page/2]
+- Phát triển thêm: Các kĩ năng và tạo thanh máu cho máy bay
 - Thử nghiệm game
 # Giới thiệu game
 Plane Shooter là một tựa game bắn máy bay kinh diển. Bạn sẽ đắm chìm vào những cuộc chiến đấu máy bay hấp dẫn. Hãy điều khiển máy bay thật khéo léo để có thể tiêu diệt được nhiều máy bay địch nhất và ghi tên mình lên bảng xếp hạng. 
@@ -50,5 +52,32 @@ Plane Shooter là một tựa game bắn máy bay kinh diển. Bạn sẽ đắm
 
   ![image](image/heart.png)
 
-# 2. Cách chơi
+# 2. Cách chơi  
+## a. Menu
+- Chọn start để bắt đầu trò chơi
+
+  ![image](image/start.png)
+
+- Chọn score để cem điểm cao nhất
+
+  ![image](image/score.png)
+
+- Chọn exit để thoát khỏi trò chơi
+
+  ![image](image/exit.png)
+
+## b. Di chuyển máy bay và bắn đạn  
+- Nhấn W để di chuyển lên trên
+- Nhấn S để di chuyển xuống dưới
+- Nhấn A để sang trái
+- Nhấn D để sang phải
+- Nhấn chuột trái để bắn đạn
+
+## c. Sử dụng các kĩ năng  
+- Nhấn 1 để sử dụng Skill1
+- Nhấn 2 để sử dụng Skill2
+- Nhấn 3 để sử dụng Skill3
+
+## d. Pause game  
+- Chọn nút ![image](image/pause.png) ở góc phải màn hình đề dừng trò chơi
 
