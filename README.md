@@ -1,7 +1,7 @@
 # PLANE SHOOTER
 - Ý tưởng: Phát triển phần mềm 123A-Z  [https://phattrienphanmem123az.com/lap-trinh-game-cpp/page/2]
 - Phát triển thêm: Các kĩ năng và tạo thanh máu cho máy bay
-- Thử nghiệm game
+- Thử nghiệm game [https://www.youtube.com/@user-xy8nu2qv9y/featured]
 # Giới thiệu game
 Plane Shooter là một tựa game bắn máy bay kinh diển. Bạn sẽ đắm chìm vào những cuộc chiến đấu máy bay hấp dẫn. Hãy điều khiển máy bay thật khéo léo để có thể tiêu diệt được nhiều máy bay địch nhất và ghi tên mình lên bảng xếp hạng. 
 - [0. Cách tải game](#0-cách-tải-game)
