@@ -38,7 +38,8 @@ Plane Shooter là một tựa game bắn máy bay kinh diển. Bạn sẽ đắm
   
   ![image](image/plane2.png)
   
-  ![image](image/plane3.png)  
+  ![image](image/plane3.png)
+  
 ## b. Kĩ năng  
 - Skill1: tạo khiên chắn không bị va chạm với đạn và địch
 
@@ -79,5 +80,15 @@ Plane Shooter là một tựa game bắn máy bay kinh diển. Bạn sẽ đắm
 - Nhấn 3 để sử dụng Skill3
 
 ## d. Pause game  
-- Chọn nút ![image](image/pause.png) ở góc phải màn hình đề dừng trò chơi
+- Chọn nút ![image](image/pause.png) ở góc phải màn hình để dừng trò chơi.
+  
+- Sau đó có thể chọn mũi tên góc trái để tiếp tục chơi.
+
+- Hoặc chọn ![image](image/replay.png) để chơi lại từ đầu.
+
+- Hoặc chọn ![image](image/home.png) để trở về menu.
+
+## e. End game
+- Khi trò chơi kết thúc, điểm số của bạn sẽ được hiển thị trên màn hình.
+- Bấm Space để quay lại Menu.
 
